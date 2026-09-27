@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bradley Samples</title>
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.json">
@@ -10,6 +15,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
+  *{ box-sizing: border-box; }
+
   :root{
     --navy:   #12213B;
     --navy-2: #0A1220;
@@ -20,8 +27,12 @@
     --line:   #2A3B57;
   }
 
-  body{
+  html, body{
+    margin:0;
     background: var(--navy-2);
+  }
+
+  body{
     display:flex;
     justify-content:center;
     padding-inline: 16px;
@@ -42,6 +53,7 @@
     border-radius: 18px;
     box-shadow: 0 24px 60px -24px rgba(0,0,0,0.65);
     overflow:hidden;
+    align-self: flex-start;
   }
 
   .strip{
@@ -159,6 +171,8 @@
     border-top: 1px solid var(--line);
   }
 </style>
+</head>
+<body>
 
 <div class="stage">
   <div class="card">
@@ -210,3 +224,5 @@
     }
   })();
 </script>
+</body>
+</html>
