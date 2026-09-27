@@ -1,0 +1,212 @@
+<title>Bradley Samples</title>
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12213B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="B. Samples">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --navy:   #12213B;
+    --navy-2: #0A1220;
+    --paper:  #EEF0F3;
+    --brass:  #B98B3E;
+    --brass-2:#8F6A2C;
+    --slate:  #7C8AA0;
+    --line:   #2A3B57;
+  }
+
+  body{
+    background: var(--navy-2);
+    display:flex;
+    justify-content:center;
+    padding-inline: 16px;
+  }
+
+  .stage{
+    width:100%;
+    max-width:420px;
+    padding-block: 28px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .card{
+    width:100%;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px -24px rgba(0,0,0,0.65);
+    overflow:hidden;
+  }
+
+  .strip{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 10px 20px;
+    background: var(--navy-2);
+    border-bottom: 1px solid var(--line);
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .strip .dot{ color: var(--brass); }
+
+  .id-block{
+    padding: 26px 24px 20px;
+  }
+
+  .id-block .name{
+    font-family:'Oswald', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 8vw, 34px);
+    letter-spacing: 0.01em;
+    color: #F5F3EE;
+    text-wrap: balance;
+    line-height: 1.05;
+    margin: 0 0 6px;
+  }
+
+  .id-block .org{
+    font-family:'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--brass);
+    margin: 0;
+  }
+
+  .qr-zone{
+    margin: 4px 24px 22px;
+    background: var(--paper);
+    border-radius: 14px;
+    padding: 18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 10px;
+  }
+
+  #qr{
+    line-height:0;
+    border-radius: 6px;
+    overflow:hidden;
+  }
+  #qr img, #qr canvas, #qr table{
+    display:block;
+    max-width:100%;
+    height:auto !important;
+    width:100% !important;
+  }
+
+  .qr-caption{
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy-2);
+    opacity: 0.6;
+  }
+
+  .details{
+    padding: 0 24px 26px;
+    display:flex;
+    flex-direction:column;
+    gap: 0;
+  }
+
+  .row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .row .label{
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    flex-shrink:0;
+  }
+
+  .row .value{
+    font-family:'Source Sans 3', sans-serif;
+    font-weight: 500;
+    font-size: 14.5px;
+    color: #F5F3EE;
+    text-align:right;
+    word-break: break-word;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .foot{
+    padding: 14px 24px 22px;
+    font-family:'Source Sans 3', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--slate);
+    text-align:center;
+    border-top: 1px solid var(--line);
+  }
+</style>
+
+<div class="stage">
+  <div class="card">
+    <div class="strip"><span>Digital Contact Card</span><span class="dot">●</span></div>
+
+    <div class="id-block">
+      <p class="name">Bradley Samples</p>
+      <p class="org">Macquarie Sports Finance</p>
+    </div>
+
+    <div class="qr-zone">
+      <div id="qr"></div>
+      <div class="qr-caption">Scan to save contact</div>
+    </div>
+
+    <div class="details">
+      <div class="row"><span class="label">Mobile</span><span class="value">+44 77 80 22 69 61</span></div>
+      <div class="row"><span class="label">Email</span><span class="value">bradley.samples@macquarie.com</span></div>
+    </div>
+
+    <div class="foot">Point a phone camera at the code above — it will offer to add this contact directly.</div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var vcard = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "N:Samples;Bradley;;;",
+      "FN:Bradley Samples",
+      "ORG:Macquarie Sports Finance",
+      "TEL;TYPE=CELL:+447780226961",
+      "EMAIL;TYPE=INTERNET:bradley.samples@macquarie.com",
+      "END:VCARD"
+    ].join("\r\n");
+
+    try {
+      new QRCode(document.getElementById("qr"), {
+        text: vcard,
+        width: 320,
+        height: 320,
+        colorDark: "#12213B",
+        colorLight: "#EEF0F3",
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    } catch (e) {
+      document.getElementById("qr").textContent = "QR generation failed — reload the page.";
+    }
+  })();
+</script>
